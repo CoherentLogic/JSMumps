@@ -1,0 +1,30 @@
+{
+  "name": "jsmumps",
+  "version": "0.0.1",
+  "description": "Asynchronous Application Server for GT.M (MUMPS)",
+  "main": "./lib/JSMWebServer.js",
+  "dependencies": {
+    "cookies": "~0.5.1",
+    "q": "^1.4.1",
+    "socket.io": "^1.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CoherentLogic/JSMumps.git"
+  },
+  "keywords": [
+    "mumps",
+    "gtm",
+    "database",
+    "web"
+  ],
+  "author": "John Willis <jpw@coherent-logic.com> (http://www.coherent-logic.com/cm/products/jsmumps)",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CoherentLogic/JSMumps/issues"
+  }
+}
