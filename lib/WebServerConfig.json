@@ -1,12 +1,13 @@
 {
-    "Contexts": [
+    "contexts": [
 	{
-	    "MaxSessionAge": 30,
-	    "Workers": 2,
-	    "DocumentRoot": "/home/jpw/www",
-	    "Log": "/home/jpw/log/JSMWebServer",
-	    "Port": 8080,
-	    "CacheEntries": 512
+	    "maxSessionAge": 30,
+	    "workers": 5,
+	    "documentRoot": "/home/vistap/www",
+	    "log": "/home/jpw/log/JSMWebServer",
+	    "port": 8080,
+	    "cacheEntries": 512,
+	    "protocol": "http"
 	}
     ]
 }
