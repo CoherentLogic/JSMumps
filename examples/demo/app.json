@@ -1,0 +1,9 @@
+{
+    "name": "Demo",
+    "version": "0.0.1",
+    "developer": "Coherent Logic Development LLC",
+    "author": "John Willis",
+    "license": "AGPL-3.0",
+    "copyright": "2015 Coherent Logic Development LLC",
+    "contextModule": "server/appContext.js"
+}
