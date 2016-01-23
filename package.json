@@ -7,6 +7,7 @@
     "cookies": "~0.5.1",
     "ejs": "^2.3.4",
     "q": "^1.4.1",
+    "soap": "^0.11.4",
     "socket.io": "^1.4.4"
   },
   "devDependencies": {},
