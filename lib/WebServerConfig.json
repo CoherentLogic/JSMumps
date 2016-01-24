@@ -2,12 +2,25 @@
     "contexts": [
 	{
 	    "maxSessionAge": 30,
-	    "workers": 5,
+	    "workers": 1,
 	    "documentRoot": "/home/vistap/www",
 	    "log": "/home/jpw/log/JSMWebServer",
 	    "port": 8080,
 	    "cacheEntries": 512,
-	    "protocol": "http"
+	    "protocol": "http",
+	    "routes": [{match: "/jsm/client.js",
+			matchOn: "absolute",
+			resourceClass: "internal",
+			internalResourcePath: "/client/JSM.js",
+			action: "serve",
+			success: 200,
+			failure: 500},
+		       {match: ".*",
+			matchOn: "absolute",
+			resourceClass: "document",
+			action: "serve",
+			success: 200,
+			failure: 404}]
 	}
     ]
 }
