@@ -2,7 +2,7 @@
     "contexts": [
 	{
 	    "maxSessionAge": 30,
-	    "workers": 5,
+	    "workers": 1,
 	    "documentRoot": "/home/jpw/www",
 	    "log": "/home/jpw/log/JSMWebServer",
 	    "port": 8080,
