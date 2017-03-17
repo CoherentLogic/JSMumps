@@ -1,2 +1,2 @@
-# nodem-objects
-NodeM Objects API
+# JSMumps
+GT.M database API for Node.js
