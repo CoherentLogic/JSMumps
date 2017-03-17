@@ -1,8 +1,8 @@
 {
   "name": "jsmumps",
-  "version": "0.1.0",
-  "description": "MUMPS Database Connector",
-  "main": "./lib/mumps",
+  "version": "0.1.2",
+  "description": "GT.M Database API for Node.js",
+  "main": "./lib/jsmumps",
   "scripts": {
     "test": "node ./tests/test"
   },
@@ -13,7 +13,7 @@
   "keywords": [
     "mumps",
     "vista",
-    "objects",
+    "gt.m",
     "nodem"
   ],
   "author": "John P. Willis <jpw@coherent-logic.com>",
