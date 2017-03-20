@@ -43,12 +43,14 @@ JSMumps redefines `process.exit()` in order to cleanly shut down child processes
 
 The following example will create an instance of the JSMumps API using 30 child processes in the variable `jsm`, running at log level 4:
 
+```javascript
     const jsmumps = require('jsmumps');
 
     var jsm = new jsm.JSMumps({
         workerCount: 30,
         logLevel: 4
     });
+```    
 
 From this point, you will be able to call JSMumps methods.
 
@@ -60,16 +62,20 @@ At any point within the documentation, the `jsmumps` variable is assumed to be a
 
 Instantiates the JSMumps API.
 
-    var jsm = new jsmumps.JSMumps(*opts*);
+```javascript
+    var jsm = new jsmumps.JSMumps( *opts* );
+```
 
 #### Arguments
 
 * *opts*: an object containing the initial configuration of JSMumps
 
+```javascript
     {
         workerCount: *workerCount*,
         logLevel: *logLevel*
     }
+```
 
 `workerCount` is a positive integer indicating the number of child processes to pre-fork when initializing JSMumps. Default value is 10.
 
