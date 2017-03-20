@@ -64,12 +64,13 @@ Instantiates the JSMumps API.
 
 #### Arguments
 
-* *opts*: an object containing the initial configuration of JSMumps:
+* *opts*: an object containing the initial configuration of JSMumps
 
     {
         workerCount: *workerCount*,
         logLevel: *logLevel*
     }
 
-* `workerCount` is a positive integer indicating the number of child processes to pre-fork when initializing JSMumps. Default value is 10.
-* `logLevel` indicates the level of logging desired, and is a positive integer in the range 0-4. A logLevel of 0 specifies no logging, a logLevel of 1 adds critical errors, 2 adds non-critical warnings, 3 adds informational messages, and 4 adds debugging messages (useful if you are adding new functionality to JSMumps). The default value is 2 (critical errors and non-critical warnings only).
+`workerCount` is a positive integer indicating the number of child processes to pre-fork when initializing JSMumps. Default value is 10.
+
+`logLevel` indicates the level of logging desired, and is a positive integer in the range 0-4. A logLevel of 0 specifies no logging, a logLevel of 1 adds critical errors, 2 adds non-critical warnings, 3 adds informational messages, and 4 adds debugging messages (useful if you are adding new functionality to JSMumps). The default value is 2 (critical errors and non-critical warnings only).
