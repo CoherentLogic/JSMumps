@@ -1,6 +1,6 @@
 ## JSMumps
 
-*JSMumps* is a Node.js module that allows the [NodeM](https://github.com/dlwicksell/nodem) GT.M Binding to be used asynchronously, as well as providing an easy means of storing Javascript objects in a MUMPS database and retrieving them into your Javascript code.
+*JSMumps* is a Node.js module that allows the [NodeM](https://github.com/dlwicksell/nodem) GT.M binding to be used asynchronously, as well as providing an easy means of storing ECMAScript objects in a MUMPS database and retrieving them into your ECMAScript code.
 
 JSMumps' object storage and retrieval mechanisms implement the JSON-M specification to provide lossless data fidelity when dealing with MUMPS nodes containing both data and child nodes.
 
@@ -77,6 +77,55 @@ Instantiates the JSMumps API.
     }
 ```
 
-`workerCount` is a positive integer indicating the number of child processes to pre-fork when initializing JSMumps. Default value is 10.
+* `workerCount` is a positive integer indicating the number of child processes to pre-fork when initializing JSMumps. Default value is 10.
 
-`logLevel` indicates the level of logging desired, and is a positive integer in the range 0-4. A logLevel of 0 specifies no logging, a logLevel of 1 adds critical errors, 2 adds non-critical warnings, 3 adds informational messages, and 4 adds debugging messages (useful if you are adding new functionality to JSMumps). The default value is 2 (critical errors and non-critical warnings only).
+* `logLevel` indicates the level of logging desired, and is a positive integer in the range 0-4. A logLevel of 0 specifies no logging, a logLevel of 1 adds critical errors, 2 adds non-critical warnings, 3 adds informational messages, and 4 adds debugging messages (useful if you are adding new functionality to JSMumps). The default value is 2 (critical errors and non-critical warnings only).
+
+#### Example
+
+The following example will configure JSMumps with 15 child processes and a log level of 3 (critical errors, non-critical warnings, and informational messages).
+
+```javascript
+    const jsmumps = require('jsmumps');
+    var jsm = new jsmumps.JSMumps({
+        workerCount: 15,
+        logLevel: 3
+    });
+```    
+
+### JSMumps.getObject()
+
+Retrieves a MUMPS subtree and its children as an ECMAScript object
+
+```javascript
+    var myObject = jsm.getObject(global, subscripts, callback);
+```    
+
+#### Arguments
+
+* `global`
+
+The MUMPS global name from which to retrieve data. Do not include the leading `^`.
+
+* `subscripts`
+
+An ECMAScript array indicating the subscript level from which to retrieve data from `global`. If you wish to retrieve the entire global, provide an empty array (`[]`) here.
+
+* `callback`
+
+The callback to be called when the data is retrieved. Per Node.js conventions, this callback function takes two arguments, *err* and *data*. 
+
+#### Example
+
+This example will output the contents of `^VA(200)` (the VistA NEW PERSON file) onto the console.
+
+```javascript
+    const jsmumps = require('jsmumps');
+    var jsm = new jsmumps.JSMumps();
+
+    jsm.getObject("VA", [200], (err, data) => {
+        if(!err) {
+            console.log(data);
+        }
+    });
+```
