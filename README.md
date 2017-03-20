@@ -63,17 +63,17 @@ At any point within the documentation, the `jsmumps` variable is assumed to be a
 Instantiates the JSMumps API.
 
 ```javascript
-    var jsm = new jsmumps.JSMumps( *opts* );
+    var jsm = new jsmumps.JSMumps(opts);
 ```
 
 #### Arguments
 
-* *opts*: an object containing the initial configuration of JSMumps
+* *opts*: an object containing the initial configuration of JSMumps, e.g.:
 
 ```javascript
     {
-        workerCount: *workerCount*,
-        logLevel: *logLevel*
+        workerCount: 5,
+        logLevel: 3
     }
 ```
 
