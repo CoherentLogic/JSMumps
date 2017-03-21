@@ -46,7 +46,7 @@ The following example will create an instance of the JSMumps API using 30 child 
 ```javascript
     const jsmumps = require('jsmumps');
 
-    var jsm = new jsm.JSMumps({
+    var jsm = new jsmumps.JSMumps({
         workerCount: 30,
         logLevel: 4
     });
@@ -95,17 +95,17 @@ The following example will configure JSMumps with 15 child processes and a log l
 
 ### JSMumps.getObject()
 
-Retrieves a MUMPS subtree and its children as an ECMAScript object
+Retrieves a MUMPS subtree and its children as an ECMAScript object.
 
 ```javascript
-    var myObject = jsm.getObject(global, subscripts, callback);
+    jsm.getObject(global, subscripts, callback);
 ```    
 
 #### Arguments
 
 * `global`
 
-The MUMPS global name from which to retrieve data. Do not include the leading `^`.
+The MUMPS global name from which to retrieve data.
 
 * `subscripts`
 
@@ -126,6 +126,56 @@ This example will output the contents of `^VA(200)` (the VistA NEW PERSON file) 
     jsm.getObject("VA", [200], (err, data) => {
         if(!err) {
             console.log(data);
+        }
+    });
+```
+
+### JSMumps.setObject()
+
+Stores an ECMAScript object in a MUMPS global.
+
+```javascript
+    jsm.setObject(global, subscripts, object, callback);
+```
+
+#### Arguments
+
+* `global`
+
+The name of the MUMPS global into which the object will be stored.
+
+* `subscripts`
+
+An ECMAScript array indicating the subscript level within `global` into which the object will be stored
+
+* `object`
+
+The ECMAScript object to be stored into `global`
+
+* `callback`
+
+The callback to be called when the object has been stored. 
+
+#### Example
+
+This example will store an object into `^ACCOUNT("bob")`.
+
+```javascript
+    const jsmumps = require('jsmumps');
+    var jsm = new jsmumps.JSMumps();
+
+    var bobAccount = {
+        email: 'bob@coherent-logic.com',
+        birthday: '10/22/1958'
+        name: {
+            first: 'Bob',
+            last: 'Dobbs'
+        }
+    };
+
+    jsm.setObject('ACCOUNT', ['bob'], bobAccount, (err, data) => {
+        if(!err) {
+            console.log('Account stored successfully!');
         }
     });
 ```
