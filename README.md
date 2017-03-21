@@ -179,3 +179,12 @@ This example will store an object into `^ACCOUNT("bob")`.
         }
     });
 ```
+
+After running the above example, the database will appear as follows:
+
+```
+    ^ACCOUNT("bob","email")="bob@coherent-logic.com"
+    ^ACCOUNT("bob","birthday")="10/22/1958"
+    ^ACCOUNT("bob","name","first")="Bob"
+    ^ACCOUNT("bob","name","last")="Dobbs"
+```
