@@ -5,71 +5,71 @@
  * Requires KBBMJSMT routine.
  */
 
-const path = require('path');
-const chalk = require('chalk');
-const JSMumps = require('../lib/jsmumps');
+module.exports = {
+    name: "import()",
+    tests: [{
+        description: "procedure with arguments (async)",
+        type: "INTEGRATION",
+        async: true,
+        test: function (testRunner) {
+            const jsmtAsync = testRunner.jsm.import("KBBMJSMT", true);
 
-// instantiate JSMumps
-const jsm = new JSMumps();
+            jsmtAsync.procArguments(1, 2, 3, (err, result) => {
+                if(err) {
+                    testRunner.failure();
+                }
+                else {
+                    testRunner.success();
+                }
+            });
+        }
+    }, {
+        description: "procedure without arguments (async)",
+        type: "INTEGRATION",
+        async: true,
+        test: function (testRunner) {
+            const jsmtAsync = testRunner.jsm.import("KBBMJSMT", true);
 
-// test async
-const jsmtAsync = jsm.import("KBBMJSMT", true);
+            jsmtAsync.procNoArguments((err, result) => {
+                if(err) {
+                    testRunner.failure();
+                }
+                else {
+                    testRunner.success();
+                }
+            });
+        }
+    }, {
+        description: "extrinsic function with arguments (async)",
+        type: "INTEGRATION",
+        async: true,
+        test: function (testRunner) {
+            const jsmtAsync = testRunner.jsm.import("KBBMJSMT", true);
 
-console.log("Testing procedure with arguments (async)");
-jsmtAsync.procArguments(1, 2, 3, (err, result) => {
-    if(err) {
-        failure("Error calling procedure with arguments (async)");
-    }
-    else {
-        success("Procedure with arguments (async) result: " + result.result);
-    }
-});
+            jsmtAsync.funcArguments(1, 2, 3, (err, result) => {
+                if(err) {
+                    testRunner.failure();
+                }
+                else {
+                    testRunner.success();
+                }
+            });
+        }
+    }, {
+        description: "extrinsic function without arguments (async)",
+        type: "INTEGRATION",
+        async: true,
+        test: function (testRunner) {
+            const jsmtAsync = testRunner.jsm.import("KBBMJSMT", true);
 
-console.log("Testing procedure without arguments (async)");
-jsmtAsync.procNoArguments((err, result) => {
-    if(err) {
-        failure("Error calling procedure without arguments (async)");
-    }
-    else {
-        success("Procedure with arguments (async) result: " + result.result);
-    }
-});
-
-console.log("Testing extrinsic function with arguments (async)");
-jsmtAsync.funcArguments(1, 2, 3, (err, result) => {
-    if(err) {
-        failure("Error calling extrinsic function with arguments (async)");
-    }
-    else {
-        success("Extrinsic function with arguments (async) result: " + result.result);
-    }
-});
-
-console.log("Testing extrinsic function without arguments (async)");
-jsmtAsync.funcNoArguments((err, result) => {
-    if(err) {
-        failure("Error calling extrinsic function without arguments (async)");
-    }
-    else {
-        success("Extrinsic function without arguments (async) result: " + result.result);
-    }
-});
-
-function scriptPath()
-{
-    return path.basename(__filename);
-}
-
-function success(msg)
-{
-    console.error(chalk.bold.green("[" + scriptPath() + "] SUCCESS: " + msg));
-
-    //process.exit(0);
-}
-
-function failure(msg)
-{
-    console.error(chalk.bold.red("[" + scriptPath() + "] FAILURE: " + msg));
-
-    //process.exit(1); 
-}
+            jsmtAsync.funcNoArguments((err, result) => {
+                if(err) {
+                    testRunner.failure();
+                }
+                else {
+                    testRunner.success();
+                }
+            });
+        }
+    }]
+};
