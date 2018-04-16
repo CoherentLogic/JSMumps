@@ -24,7 +24,7 @@
   "homepage": "https://github.com/CoherentLogic/JSMumps#readme",
   "dependencies": {
     "chalk": "^1.1.3",
-    "nodem": "^0.9.0",
+    "nodem": "^0.11.0",
     "underscore": "^1.8.3"
   }
 }
